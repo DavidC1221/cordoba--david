@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página Personal – David Córdoba</title>
+  <meta name="description" content="Página personal de David Córdoba – Laboratorio 2 (Introducción a HTML)" />
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --text:#151922; --muted:#6b7280; --brand:#2563eb; --line:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:20px}
+    header{
+      background:var(--card); border-bottom:1px solid var(--line);
+      position:sticky; top:0; z-index:10;
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:800;letter-spacing:.3px}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+    nav a{display:inline-block;padding:10px 12px;border-radius:10px}
+    nav a:hover{background:#eef2ff}
+    main{padding-block:28px}
+    section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px}
+    section h2{margin:0 0 10px 0;font-size:1.25rem}
+    /* Sobre mí */
+    .about{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:start}
+    .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+    .about p{margin:6px 0;color:var(--muted)}
+    /* Habilidades */
+    .skills ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#f8fafc}
+    /* Proyectos (tabla) */
+    table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:var(--card)}
+    thead th{background:#f3f4f6;text-align:left}
+    th,td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+    tbody tr:hover{background:#f9fafb}
+    /* Formulario */
+    form{display:grid;gap:12px;max-width:640px}
+    label{font-weight:600}
+    input,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{appearance:none;border:0;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn:hover{filter:brightness(1.05)}
+    footer{border-top:1px solid var(--line);background:var(--card);padding:16px 0;color:var(--muted);text-align:center}
+    /* Responsive */
+    @media (max-width:720px){
+      .about{grid-template-columns:1fr}
+      .about .avatar{justify-self:center}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">David Córdoba</div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" aria-labelledby="tit-sobre-mi">
+      <h2 id="tit-sobre-mi">Sobre mí</h2>
+      <div class="about">
+        <img
+          class="avatar"
+          alt="Foto de perfil de David Córdoba"
+          src="https://i.postimg.cc/q73h4X7b/62d93376-16f3-4853-9574-247c17be1d5f.jpg"
+        />
+        <div>
+          <p>Hola, soy David Córdoba. Estudiante universitario apasionado por el desarrollo web y la optimización de procesos.</p>
+          <p>Actualmente practico HTML, CSS y Git, y me gusta aprender nuevas tecnologías que me ayuden a mejorar mis proyectos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" aria-labelledby="tit-habilidades">
+      <h2 id="tit-habilidades">Habilidades</h2>
+      <div class="skills">
+        <ul>
+          <li class="chip">HTML5 básico</li>
+          <li class="chip">CSS</li>
+          <li class="chip">Git & GitHub</li>
+          <li class="chip">Trabajo en equipo</li>
+          <li class="chip">Resolución de problemas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROYECTOS (TABLA) -->
+    <section id="proyectos" aria-labelledby="tit-proyectos">
+      <h2 id="tit-proyectos">Proyectos</h2>
+      <p class="muted">Algunos ejercicios de práctica:</p>
+      <div style="overflow:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Proyecto</th>
+              <th>Descripción</th>
+              <th>Tecnologías</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mi primera página web</td>
+              <td>Página básica con títulos, párrafos y listas.</td>
+              <td>HTML</td>
+            </tr>
+            <tr>
+              <td>Lista de tareas</td>
+              <td>Página con una lista simple de pendientes con estilos.</td>
+              <td>HTML, CSS</td>
+            </tr>
+            <tr>
+              <td>Currículum online</td>
+              <td>Documento personal con datos académicos y de contacto.</td>
+              <td>HTML, CSS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FORMULARIO (SIN JS) -->
+    <section id="contacto" aria-labelledby="tit-contacto">
+      <h2 id="tit-contacto">Contacto</h2>
+      <form action="#" method="post">
+        <div class="row">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+          </div>
+          <div>
+            <label for="email">Correo</label>
+            <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="asunto">Asunto</label>
+          <input id="asunto" name="asunto" type="text" placeholder="Motivo del mensaje" required />
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+        </div>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> David Córdoba — Laboratorio #2
+    </div>
+    <script>
+      // Solo para mostrar el año actual en el footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
