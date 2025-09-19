@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventos UTP</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Portal oficial de eventos UTP - Universidad Tecnológica de Panamá">
+  <meta name="keywords" content="UTP, eventos, universidad, Panamá, estudiantes">
+  <meta name="author" content="Marcos Córdoba">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eventos UTP">
+  <meta property="og:description" content="Descubre los próximos eventos en la UTP">
+  <meta property="og:image" content="assets/logo-utp.png">
+
+  <link rel="icon" href="favicon.ico">
+  <style>
+    body {font-family: system-ui, Arial, sans-serif; margin:0; line-height:1.5; color:#111;}
+    header, footer {background:#0b3b75; color:#fff; padding:16px;}
+    header nav a {color:#fff; margin-right:12px; text-decoration:none; font-weight:600;}
+    .container {max-width:1100px; margin:auto; padding:16px;}
+    main {display:grid; grid-template-columns: 3fr 1fr; gap:24px;}
+    article {border:1px solid #eee; border-radius:12px; padding:16px; margin-bottom:16px;}
+    figure {margin:0;}
+    figure img {max-width:100%; border-radius:8px;}
+    aside {border-left:4px solid #0b3b75; padding-left:16px;}
+    h1, h2, h3 {margin-top:0;}
+    .category {margin: 8px 0 16px;}
+    form {display:grid; gap:12px; border:1px solid #eee; padding:16px; border-radius:12px; background:#fafafa;}
+    fieldset {border:1px dashed #bbb; border-radius:8px; padding:12px;}
+    legend {padding:0 6px; font-weight:700;}
+    label {display:block; font-weight:600;}
+    input, select, textarea {width:100%; padding:8px; border:1px solid #ccc; border-radius:8px;}
+    .row {display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;}
+    .media {display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:24px;}
+    .stats {display:flex; gap:16px; flex-wrap:wrap;}
+    .card {border:1px solid #eee; border-radius:12px; padding:12px;}
+    footer a {color:#fff; text-decoration:underline;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/logo-utp.png" alt="Logo UTP" width="40" height="40" />
+      <div style="flex:1">
+        <h1 style="margin:0;">Portal de Eventos UTP</h1>
+        <nav aria-label="Navegación principal">
+          <a href="#multimedia">Multimedia</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#registro">Registro</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <section id="multimedia" aria-labelledby="ttl-multimedia">
+        <h2 id="ttl-multimedia">Sección Multimedia de Eventos</h2>
+        <div class="media">
+          <div>
+            <h3>Video promocional</h3>
+            <video controls width="100%" aria-label="Video promocional del último evento">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+              Tu navegador no soporta el elemento video.
+            </video>
+          </div>
+          <div>
+            
+            <!-- YouTube: Canción "Patria" (embebido) -->
+            <h3 style="margin-top:16px;">Canción: “Patria” (YouTube)</h3>
+            <iframe width="100%" height="315"
+              src="https://www.youtube.com/embed/hDgvhf65ly8"
+              title="Canción Patria - Rubén Blades (YouTube)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+
+            <h3 style="margin-top:16px;">Ubicación (Google Maps)</h3>
+            <iframe title="Mapa del campus UTP" width="100%" height="220" loading="lazy" allowfullscreen
+              src="https://www.google.com/maps?q=Universidad+Tecnol%C3%B3gica+de+Panam%C3%A1&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <aside aria-labelledby="ttl-aside">
+        <h2 id="ttl-aside">Destacados</h2>
+        <div class="card">
+          <strong>Semana de la Ingeniería</strong>
+          <div>
+            <label>Popularidad</label><meter value="8.5" min="0" max="10">8.5 de 10</meter>
+          </div>
+          <div>
+            <label>Cupos</label><progress value="75" max="100">75% de cupos ocupados</progress>
+          </div>
+          <details style="margin-top:8px;">
+            <summary>¿Cómo me registro para un evento?</summary>
+            <p>Completa el formulario de registro con tu correo institucional y selecciona el evento.</p>
+          </details>
+        </div>
+      </aside>
+    </main>
+
+    <section id="eventos" aria-labelledby="ttl-eventos">
+      <h2 id="ttl-eventos">Eventos por categoría</h2>
+
+      <section class="category" aria-label="Académicos">
+        <h3>Académicos</h3>
+        <article>
+          <header><h4>Feria Tecnológica UTP</h4></header>
+          <p><strong>Fecha:</strong> 10/10 – <strong>Hora:</strong> 9:00 AM – <strong>Lugar:</strong> Auditorio Principal</p>
+          <p>Exposición de proyectos de innovación de estudiantes y empresas invitadas.</p>
+          <figure>
+            <img src="assets/evento-foto.png" alt="Foto de feria tecnológica">
+            <figcaption>Edición anterior de la feria.</figcaption>
+          </figure>
+        </article>
+        <article>
+          <header><h4>Jornada de Investigación</h4></header>
+          <p><strong>Fecha:</strong> 12/10 – <strong>Hora:</strong> 2:00 PM – <strong>Lugar:</strong> Biblioteca</p>
+          <p>Presentación de papers y posters científicos de las distintas facultades.</p>
+        </article>
+      </section>
+
+      <section class="category" aria-label="Deportivos">
+        <h3>Deportivos</h3>
+        <article>
+          <header><h4>Torneo Interfacultades</h4></header>
+          <p><strong>Fecha:</strong> 15/10 – <strong>Hora:</strong> 4:00 PM – <strong>Lugar:</strong> Cancha Central</p>
+          <p>Competencia de fútbol y baloncesto entre facultades.</p>
+        </article>
+      </section>
+
+      <section class="category" aria-label="Culturales">
+        <h3>Culturales</h3>
+        <article>
+          <header><h4>Concierto de Bienvenida</h4></header>
+          <p><strong>Fecha:</strong> 18/10 – <strong>Hora:</strong> 7:00 PM – <strong>Lugar:</strong> Plaza UTP</p>
+          <p>Artistas invitados para celebrar el inicio del nuevo periodo académico.</p>
+        </article>
+        <article>
+          <header><h4>Exposición Fotográfica</h4></header>
+          <p><strong>Fecha:</strong> 20/10 – <strong>Hora:</strong> 11:00 AM – <strong>Lugar:</strong> Pasillos Centrales</p>
+          <p>Muestras de fotografía de estudiantes de toda la universidad.</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="registro" aria-labelledby="ttl-registro">
+      <h2 id="ttl-registro">Formulario de registro</h2>
+      <form>
+        <fieldset>
+          <legend>Información Personal</legend>
+          <div class="row">
+            <div>
+              <label for="nombre">Nombre completo</label>
+              <input id="nombre" name="nombre" type="text" required placeholder="Nombre y apellido">
+            </div>
+            <div>
+              <label for="cedula">Cédula panameña</label>
+              <input id="cedula" name="cedula" type="text" required placeholder="00-000-0000"
+                     pattern="^\d{{2}}-\d{{3,4}}-\d{{4}}$"
+                     title="Formato válido: 00-000-0000 o 00-0000-0000">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="email">Correo institucional</label>
+              <input id="email" name="email" type="email" required placeholder="nombre@utp.ac.pa">
+            </div>
+            <div>
+              <label for="tel">Teléfono</label>
+              <input id="tel" name="tel" type="tel" placeholder="+507 6000-0000">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="nacimiento">Fecha de nacimiento</label>
+              <input id="nacimiento" name="nacimiento" type="date" required>
+            </div>
+            <div>
+              <label for="hora">Hora preferida</label>
+              <input id="hora" name="hora" type="time">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Selección de Evento</legend>
+          <div class="row">
+            <div>
+              <label for="facultad">Facultad</label>
+              <input list="facultades" name="facultad" id="facultad" placeholder="Seleccione o escriba">
+              <datalist id="facultades">
+                <option value="Ingeniería de Sistemas">
+                <option value="Ingeniería Civil">
+                <option value="Ingeniería Industrial">
+                <option value="Ingeniería Eléctrica">
+                <option value="Ingeniería Mecánica">
+              </datalist>
+            </div>
+            <div>
+              <label for="color">Color favorito</label>
+              <input id="color" name="color" type="color" value="#0b3b75">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="interes">Nivel de interés (1-10)</label>
+              <input id="interes" name="interes" type="range" min="1" max="10" value="7">
+            </div>
+            <div>
+              <label for="acompanantes">Acompañantes</label>
+              <input id="acompanantes" name="acompanantes" type="number" min="0" max="5" value="0">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="evento">Evento</label>
+              <select id="evento" name="evento" required>
+                <option value="">Seleccione…</option>
+                <option>Feria Tecnológica UTP</option>
+                <option>Jornada de Investigación</option>
+                <option>Torneo Interfacultades</option>
+                <option>Concierto de Bienvenida</option>
+                <option>Exposición Fotográfica</option>
+              </select>
+            </div>
+            <div>
+              <label for="horaEvento">Hora preferida del evento</label>
+              <input id="horaEvento" name="horaEvento" type="time">
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" aria-label="Enviar formulario">Enviar</button>
+      </form>
+    </section>
+
+    <section id="faq" aria-labelledby="ttl-faq">
+      <h2 id="ttl-faq">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Cómo me registro para un evento?</summary>
+        <p>Utiliza el formulario anterior. Recibirás confirmación al correo institucional.</p>
+      </details>
+      <details>
+        <summary>¿Puedo llevar acompañantes?</summary>
+        <p>Sí, indica la cantidad en el campo correspondiente del formulario.</p>
+      </details>
+    </section>
+  </div>
+
+  <footer id="contacto">
+    <div class="container">
+      <p><strong>Universidad Tecnológica de Panamá</strong> — Dirección de Vida Universitaria</p>
+      <p>Email: <a href="mailto:eventos@utp.ac.pa">eventos@utp.ac.pa</a> · Tel: <a href="tel:+5071234567">+507 123-4567</a></p>
+      <p>Síguenos en <a href="#" rel="noopener">Facebook</a> · <a href="#" rel="noopener">Instagram</a> · <a href="#" rel="noopener">X</a></p>
+    </div>
+  </footer>
+</body>
+</html>
