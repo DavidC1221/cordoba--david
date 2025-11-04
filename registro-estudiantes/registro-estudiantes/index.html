@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Estudiantes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="title">
+      <span class="emoji" aria-hidden="true">📚</span>
+      <h1>Registro de Estudiantes</h1>
+    </div>
+    <span id="badge-count" class="badge">0 estudiantes</span>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Nuevo estudiante</h2>
+
+      <form id="student-form" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="firstName">Nombre <span class="req">*</span></label>
+            <input id="firstName" name="firstName" type="text" placeholder="Ana Sofía" required />
+            <small class="error" data-for="firstName"></small>
+          </div>
+
+          <div class="field">
+            <label for="lastName">Apellido <span class="req">*</span></label>
+            <input id="lastName" name="lastName" type="text" placeholder="González" required />
+            <small class="error" data-for="lastName"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="ana@example.com" required />
+            <small class="error" data-for="email"></small>
+          </div>
+
+          <div class="field">
+            <label for="age">Edad</label>
+            <input id="age" name="age" type="number" min="18" max="100" value="18" required />
+            <small class="error" data-for="age"></small>
+          </div>
+
+          <div class="field">
+            <label for="career">Carrera</label>
+            <select id="career" name="career" required>
+              <option value="">— Selecciona —</option>
+              <option>Ingeniería de Software</option>
+              <option>Ingeniería Industrial</option>
+              <option>Administración</option>
+              <option>Logística</option>
+              <option>Diseño</option>
+            </select>
+            <small class="error" data-for="career"></small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Agregar estudiante</button>
+          <button type="button" id="btn-clear" class="btn">Limpiar</button>
+          <span class="hint">Los campos marcados con <span class="req">*</span> son obligatorios.</span>
+        </div>
+      </form>
+    </section>
+
+    <div class="toolbar">
+      <button type="button" id="btn-clear-all" class="btn danger">Borrar todo</button>
+    </div>
+
+    <section class="card">
+      <h2>Estudiantes</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Edad</th>
+              <th>Carrera</th>
+              <th class="center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr class="empty">
+              <td colspan="7">No hay resultados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="tip">Consejo: usa el buscador del navegador (Ctrl/Cmd + F) para filtrar rápidamente los registros.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

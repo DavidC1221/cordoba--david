@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Estudiantes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#1c1917;
+      --card:#292524;
+      --card-2:#1f1b18;
+      --text:#fef3c7;
+      --muted:#d6d3d1;
+      --border:#3f3f46;
+      --accent:#f97316;
+      --accent-2:#ea580c;
+      --danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;margin:0;
+      background: radial-gradient(800px 400px at 10% -10%, #2b1f19 0%, transparent 60%),
+                  radial-gradient(600px 300px at 120% 10%, #2b1f19 0%, transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    }
+    .header{max-width:1100px;margin:28px auto 0;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+    .title{display:flex;gap:12px;align-items:center}
+    .title h1{font-size:32px;line-height:1.2;margin:0}
+    .emoji{font-size:34px}
+    .badge{background:#78350f;color:#fff7ed;padding:6px 12px;border-radius:999px;font-size:14px}
+    .container{max-width:1100px;margin:18px auto 60px;padding:0 20px}
+    .card{background:linear-gradient(180deg,var(--card) 0%,#1f1b18 100%);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.25);margin-bottom:22px}
+    .card h2{margin:0 0 16px 0;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .field{grid-column:span 6}
+    .field:nth-child(3){grid-column:span 6}
+    .field:nth-child(4){grid-column:span 3}
+    .field:nth-child(5){grid-column:span 3}
+    @media (max-width:760px){.field{grid-column:1/-1}}
+    label{display:block;margin:0 0 6px 2px;color:var(--muted);font-size:14px}
+    .req{color:#facc15}
+    input,select{width:100%;padding:12px 14px;background:#1f1b18;border:1px solid var(--border);border-radius:10px;color:var(--text);outline:none}
+    input::placeholder{color:#a8a29e}
+    .error{color:#f87171;font-size:12px;height:16px;margin-top:6px;display:block}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:16px}
+    .hint{color:var(--muted);font-size:14px}
+    .btn{background:#3f3f46;color:var(--text);padding:10px 16px;border:1px solid var(--border);border-radius:12px;cursor:pointer}
+    .btn:hover{filter:brightness(1.08)}
+    .btn.primary{background:var(--accent);color:#fff;border-color:transparent;font-weight:600}
+    .btn.primary:hover{background:var(--accent-2);color:#fff7ed}
+    .btn.danger{background:#1f1b18;border-color:#7f1d1d;color:#fecaca}
+    .btn.danger:hover{background:#7f1d1d;color:#fff}
+    .toolbar{margin:12px 0}
+    .table-wrapper{overflow:auto;border-radius:12px;border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse;min-width:780px}
+    thead th{text-align:left;padding:14px 16px;background:#1f1b18;border-bottom:1px solid var(--border);font-weight:600}
+    tbody td{padding:14px 16px;border-bottom:1px solid var(--border)}
+    tbody tr:hover{background:#2e2623}
+    tbody tr.empty td{text-align:center;color:var(--muted)}
+    .center{text-align:center}
+    .action-del{background:#78350f;color:#fef3c7;border:1px solid #92400e;padding:8px 12px;border-radius:12px;cursor:pointer}
+    .action-del:hover{background:#92400e;color:#fff}
+    .tip{color:var(--muted);font-size:14px;margin:10px 6px 0}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="title">
+      <span class="emoji" aria-hidden="true">🧾</span>
+      <h1>Registro de Estudiantes</h1>
+    </div>
+    <span id="badge-count" class="badge">0 estudiantes</span>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Nuevo estudiante</h2>
+      <form id="student-form" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="firstName">Nombre <span class="req">*</span></label>
+            <input id="firstName" name="firstName" type="text" placeholder="Ana Sofía" required />
+            <small class="error" data-for="firstName"></small>
+          </div>
+          <div class="field">
+            <label for="lastName">Apellido <span class="req">*</span></label>
+            <input id="lastName" name="lastName" type="text" placeholder="González" required />
+            <small class="error" data-for="lastName"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="ana@example.com" required />
+            <small class="error" data-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="age">Edad</label>
+            <input id="age" name="age" type="number" min="18" max="100" value="18" required />
+            <small class="error" data-for="age"></small>
+          </div>
+          <div class="field">
+            <label for="career">Carrera</label>
+            <select id="career" name="career" required>
+              <option value="">— Selecciona —</option>
+              <option>Ingeniería de Software</option>
+              <option>Ingeniería Industrial</option>
+              <option>Administración</option>
+              <option>Logística</option>
+              <option>Diseño</option>
+            </select>
+            <small class="error" data-for="career"></small>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn primary">Agregar estudiante</button>
+          <button type="button" id="btn-clear" class="btn">Limpiar</button>
+          <span class="hint">Los campos marcados con <span class="req">*</span> son obligatorios.</span>
+        </div>
+      </form>
+    </section>
+
+    <div class="toolbar">
+      <button type="button" id="btn-clear-all" class="btn danger">Borrar todo</button>
+    </div>
+
+    <section class="card">
+      <h2>Estudiantes</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Nombre</th><th>Apellido</th><th>Email</th><th>Edad</th><th>Carrera</th><th class="center">Acciones</th></tr>
+          </thead>
+          <tbody id="tbody">
+            <tr class="empty"><td colspan="7">No hay resultados.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tip">Consejo: usa el buscador para filtrar rápidamente los registros.</p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('student-form');
+    const tbody = document.getElementById('tbody');
+    const badge = document.getElementById('badge-count');
+    const btnClear = document.getElementById('btn-clear');
+    const btnClearAll = document.getElementById('btn-clear-all');
+
+    let students = [];
+    let seq = 1;
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/i;
+
+    function setBadge(){ const n=students.length; badge.textContent = n===1?'1 estudiante':\`\${n} estudiantes\`; }
+    function clearErrors(){ document.querySelectorAll('.error').forEach(e=>e.textContent=''); }
+    function showEmptyRow(){ if(students.length===0){ tbody.innerHTML='<tr class="empty"><td colspan="7">No hay resultados.</td></tr>'; } }
+    function render(){
+      if(students.length===0){ showEmptyRow(); setBadge(); return; }
+      tbody.innerHTML = students.map((s,i)=>\`
+        <tr data-id="\${s.id}">
+          <td>\${i+1}</td><td>\${s.firstName}</td><td>\${s.lastName}</td>
+          <td>\${s.email}</td><td>\${s.age}</td><td>\${s.career}</td>
+          <td class="center"><button class="action-del" data-action="delete">Eliminar</button></td>
+        </tr>\`).join('');
+      setBadge();
+    }
+
+    function validate(fd){
+      clearErrors(); let ok=true;
+      const setErr=(n,m)=>{ const s=document.querySelector(\`.error[data-for="\${n}"]\`); if(s) s.textContent=m; ok=false; };
+      const firstName=fd.get('firstName').trim();
+      const lastName=fd.get('lastName').trim();
+      const email=fd.get('email').trim();
+      const ageStr=fd.get('age').trim();
+      const career=fd.get('career').trim();
+      if(!firstName) setErr('firstName','Requerido.');
+      if(!lastName) setErr('lastName','Requerido.');
+      if(!email) setErr('email','Requerido.'); else if(!emailRegex.test(email)) setErr('email','Formato inválido.');
+      const age=Number(ageStr);
+      if(!ageStr) setErr('age','Requerido.'); else if(Number.isNaN(age)||age<18||age>100) setErr('age','Debe estar entre 18 y 100.');
+      if(!career) setErr('career','Selecciona una opción.');
+      return ok;
+    }
+
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const data=new FormData(form);
+      if(!validate(data)) return;
+      const student={ id:seq++, firstName:data.get('firstName').trim(), lastName:data.get('lastName').trim(),
+        email:data.get('email').trim(), age:Number(data.get('age')), career:data.get('career').trim() };
+      students.push(student); render(); form.reset(); document.getElementById('age').value=18; clearErrors();
+    });
+
+    btnClear.addEventListener('click',()=>{ form.reset(); document.getElementById('age').value=18; clearErrors(); });
+
+    btnClearAll.addEventListener('click',()=>{
+      if(students.length===0) return;
+      if(!confirm('¿Seguro que deseas eliminar todos los estudiantes?')) return;
+      students=[]; render();
+    });
+
+    tbody.addEventListener('click',(e)=>{
+      const btn=e.target.closest('[data-action="delete"]'); if(!btn) return;
+      const tr=e.target.closest('tr'); const id=Number(tr?.dataset.id); if(!id) return;
+      students = students.filter(s=>s.id!==id); render();
+    });
+
+    showEmptyRow(); setBadge();
+  </script>
+</body>
+</html>
